@@ -10,6 +10,17 @@ using namespace std;
 #include "Elf.h"
 #include "Wizard.h"
 
+void printHealth(const vector<Character *> &adventurers)
+{
+    cout << "-----Health Remaining-----" << endl;
+    for (unsigned i = 0; i < adventurers.size(); ++i) 
+    {
+        cout << adventurers.at(i)->getName() << ": " 
+        << adventurers.at(i)->getHealth() << endl;
+    }
+}
+
+
 int main() {
     int seed;
     cout << "Enter seed value: ";
@@ -40,10 +51,7 @@ int main() {
         adventurers.at(attacker)->attack(*adventurers.at(defender));
         cout << endl;
     }
-    cout << "-----Health Remaining-----" << endl;
-    for (unsigned i = 0; i < adventurers.size(); ++i) {
-        cout << adventurers.at(i)->getName() << ": " 
-            << adventurers.at(i)->getHealth() << endl;
-    }
-    return 0;
+    printHealth(adventurers);
+    while(true)
+    {}
 }
