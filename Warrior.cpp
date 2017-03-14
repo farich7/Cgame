@@ -11,7 +11,7 @@ void Warrior::attack(Character &opp)
  {
      if(opp.getHealth() == 0)
      {
-        cout <<"Warrior ";
+        cout <<"Hero ";
         cout << this->getName() << " cannot attack someone that is already dead " << opp.getName() << "." << endl;
         return;
      }
@@ -20,7 +20,7 @@ void Warrior::attack(Character &opp)
      Warrior &opponent = dynamic_cast<Warrior &>(opp);
       if(opponent.allegiance == this->allegiance)
       {
-          cout <<"Warrior ";
+          cout <<"Hero ";
           cout << this->getName() << " does not attack Warrior " << opp.getName() << "." << endl;
           cout << "They share an allegiance with " << allegiance << "." << endl;
           return;
@@ -36,7 +36,7 @@ void Warrior::attack(Character &opp)
     {
         opp.setHealth(opp.getHealth() - damage);
     }
-    cout <<"Warrior ";
+    cout <<"Hero ";
     cout << this->getName() << " attacks " << opp.getName() << " --- SLASH!!" << endl;
     cout << opp.getName() << " takes " << damage << " damage." << endl;
      
