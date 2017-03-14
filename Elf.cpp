@@ -8,6 +8,12 @@
  
  void Elf::attack(Character &opp)
  {
+    if(opp.getHealth() == 0)
+     {
+        cout <<"Elf ";
+        cout << this->getName() << " cannot attack someone that is already dead " << opp.getName() << "." << endl;
+        return;
+     }
    double damage = 0.0;
      if(opp.getType() == ELF)
      {
@@ -22,11 +28,20 @@
          }
      }
      damage = (health/MAX_HEALTH) * attackStrength;
-    opp.setHealth(opp.getHealth() - damage);
+     double newHealth = opp.getHealth() - damage;
+    if(newHealth <= 0)
+    {
+        opp.setHealth(0);
+    }
+    else
+    {
+        opp.setHealth(opp.getHealth() - damage);
+    }
     
     
 /*Warrior Bob attacks Arthur --- SLASH!!
 Arthur takes 4 damage.*/
+
     cout <<"Elf ";
     cout << this->getName() << " shoots an arrow at " << opp.getName() << " --- TWANG!!" << endl;
     cout << opp.getName() << " takes " << damage << " damage." << endl;

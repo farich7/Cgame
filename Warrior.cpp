@@ -9,6 +9,12 @@ Warrior::Warrior(const string &name, double health, double attackStrength, strin
  
 void Warrior::attack(Character &opp)
  {
+     if(opp.getHealth() == 0)
+     {
+        cout <<"Warrior ";
+        cout << this->getName() << " cannot attack someone that is already dead " << opp.getName() << "." << endl;
+        return;
+     }
   double damage = 0.0;
    if(opp.getType() == WARRIOR){
      Warrior &opponent = dynamic_cast<Warrior &>(opp);
@@ -23,7 +29,15 @@ void Warrior::attack(Character &opp)
       }
    }
     damage = (health/MAX_HEALTH) * attackStrength;
-    opp.setHealth(opp.getHealth() - damage);
+    double newHealth = opp.getHealth() - damage;
+    if(newHealth <= 0)
+    {
+        opp.setHealth(0);
+    }
+    else
+    {
+        opp.setHealth(opp.getHealth() - damage);
+    }
     cout <<"Warrior ";
     cout << this->getName() << " attacks " << opp.getName() << " --- SLASH!!" << endl;
     cout << opp.getName() << " takes " << damage << " damage." << endl;
