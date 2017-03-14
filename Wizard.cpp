@@ -10,7 +10,7 @@
  {
     if(opp.getHealth() == 0)
      {
-        cout <<"Wizard ";
+        cout <<"Harpy ";
         cout << this->getName() << " cannot attack someone that is already dead " << opp.getName() << "." << endl;
         return;
      }
@@ -34,7 +34,7 @@
     {
         opp.setHealth(opp.getHealth() - damage);
     }
-    cout <<"Wizard ";
+    cout <<"Harpy ";
     cout << this->getName() << " attacks " << opp.getName() << " --- POOF!!" << endl;
     cout << opp.getName() << " takes " << damage << " damage." << endl;
      
