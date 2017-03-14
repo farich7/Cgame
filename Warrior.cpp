@@ -24,8 +24,6 @@ void Warrior::attack(Character &opp)
           cout << this->getName() << " does not attack Warrior " << opp.getName() << "." << endl;
           cout << "They share an allegiance with " << allegiance << "." << endl;
           return;
-          
-  
       }
    }
     damage = (health/MAX_HEALTH) * attackStrength;
